@@ -35,6 +35,25 @@ def load_jce_resolutions():
 # Cargar resoluciones al inicio
 JCE_RESOLUTIONS = load_jce_resolutions()
 
+# Cargar documentos oficiales JCE
+def load_jce_documents():
+    """Cargar documentos oficiales de la JCE"""
+    documents = {}
+    try:
+        if os.path.exists("jce_documents.json"):
+            with open("jce_documents.json", 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                for category, category_documents in data.items():
+                    if category != "fecha_actualizacion":
+                        documents.update(category_documents)
+        return documents
+    except Exception as e:
+        print(f"Error cargando documentos: {e}")
+        return {}
+
+# Cargar documentos al inicio
+JCE_DOCUMENTS = load_jce_documents()
+
 # Diccionario para mantener historial por usuario
 mensajes = {}
 
@@ -314,12 +333,17 @@ def obtener_respuesta_predefinida(texto):
     """Obtener respuesta predefinida basada en el texto del usuario"""
     texto_lower = texto.lower()
     
-    # Primero buscar en resoluciones oficiales
+    # Primero buscar en documentos oficiales
+    document_response = buscar_en_documentos(texto_lower)
+    if document_response:
+        return document_response
+    
+    # Luego buscar en resoluciones oficiales
     resolution_response = buscar_en_resoluciones(texto_lower)
     if resolution_response:
         return resolution_response
     
-    # Si no hay resolución específica, usar respuestas predefinidas
+    # Si no hay documento o resolución específica, usar respuestas predefinidas
     if any(palabra in texto_lower for palabra in ["acta", "nacimiento", "certificado", "partida"]):
         return RESPUESTAS_PREDEFINIDAS["acta_nacimiento"]
     elif any(palabra in texto_lower for palabra in ["cambio", "nombre", "modificar", "corregir", "apellido"]):
@@ -342,6 +366,50 @@ def obtener_respuesta_predefinida(texto):
         return RESPUESTAS_PREDEFINIDAS["certificados"]
     else:
         return RESPUESTAS_PREDEFINIDAS["general"]
+
+def buscar_en_documentos(texto):
+    """Buscar información en los documentos oficiales de la JCE"""
+    for filename, document in JCE_DOCUMENTS.items():
+        content = document.get("contenido", "").lower()
+        info = document.get("informacion", {})
+        category = document.get("categoria", "")
+        
+        # Buscar coincidencias en el contenido y palabras clave
+        keywords = info.get("palabras_clave", [])
+        if any(palabra in content for palabra in texto.split()) or any(palabra in texto for palabra in keywords):
+            # Crear respuesta basada en el documento
+            response = f"📋 **Documento Oficial JCE**\n\n"
+            response += f"**Título:** {info.get('titulo', filename)}\n"
+            response += f"**Categoría:** {category.title()}\n"
+            
+            if info.get("numero"):
+                response += f"**Número:** {info['numero']}\n"
+            
+            if info.get("fecha"):
+                response += f"**Fecha:** {info['fecha']}\n\n"
+            
+            # Agregar artículos relevantes
+            if info.get("articulos"):
+                response += "**Artículos relevantes:**\n"
+                for article in info["articulos"][:3]:
+                    response += f"• Artículo {article['numero']}: {article['contenido']}\n"
+                response += "\n"
+            
+            # Agregar capítulos
+            if info.get("capitulos"):
+                response += "**Capítulos:**\n"
+                for chapter in info["capitulos"][:2]:
+                    response += f"• Capítulo {chapter['numero']}: {chapter['contenido']}\n"
+                response += "\n"
+            
+            # Agregar palabras clave
+            if keywords:
+                response += f"**Temas:** {', '.join(keywords[:5])}\n\n"
+            
+            response += "ℹ️ *Esta información está basada en documentos oficiales de la JCE*"
+            return response
+    
+    return None
 
 def buscar_en_resoluciones(texto):
     """Buscar información en las resoluciones oficiales de la JCE"""
