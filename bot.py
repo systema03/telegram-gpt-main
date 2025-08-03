@@ -28,7 +28,13 @@ RESPUESTAS_PREDEFINIDAS = {
 • Solicitud en formulario oficial de la JCE
 • Dirección: Oficina Central de la JCE, Santo Domingo
 
-⏰ **Tiempo de entrega:** 3-5 días hábiles""",
+⏰ **Tiempo de entrega:** 3-5 días hábiles
+
+**Oficinas JCE:**
+📍 Santo Domingo: Av. 27 de Febrero
+📍 Santiago: Av. Estrella Sadhalá
+📍 La Romana: Av. Libertad
+📍 San Pedro: Av. Independencia""",
 
     "cambio_nombre": """🔄 **Cambio de Nombre en RD:**
 
@@ -45,7 +51,13 @@ RESPUESTAS_PREDEFINIDAS = {
 3. Audiencia judicial
 4. Resolución final
 
-⏰ **Duración:** 3-6 meses""",
+⏰ **Duración:** 3-6 meses
+
+**Justificaciones válidas:**
+• Error ortográfico en el registro
+• Nombres ofensivos o ridículos
+• Adopción
+• Matrimonio (apellido del cónyuge)""",
 
     "naturalizacion": """🇩🇴 **Naturalización en República Dominicana:**
 
@@ -61,7 +73,13 @@ RESPUESTAS_PREDEFINIDAS = {
 • Certificado de trabajo
 • Comprobante de domicilio
 
-⏰ **Proceso:** 6-12 meses""",
+⏰ **Proceso:** 6-12 meses
+
+**Tipos de naturalización:**
+• Por residencia (2 años)
+• Por matrimonio (1 año)
+• Por inversión (RD$ 200,000+)
+• Por nacimiento en RD""",
 
     "apostilla": """📜 **Apostilla en República Dominicana:**
 
@@ -79,7 +97,58 @@ Certificación internacional que valida documentos para uso en el extranjero.
 2. Pago de tasa (RD$ 300-500)
 3. Entrega en 24-48 horas
 
-📍 **Ubicación:** Ministerio de Relaciones Exteriores, Santo Domingo""",
+📍 **Ubicación:** Ministerio de Relaciones Exteriores, Santo Domingo
+
+**Países que aceptan apostilla:**
+• Estados Unidos, Canadá, México
+• España, Francia, Alemania
+• Reino Unido, Italia, Portugal
+• Y otros 120+ países""",
+
+    "cedula": """🆔 **Cédula de Identidad en RD:**
+
+**Primera vez:**
+• Acta de nacimiento
+• Certificado médico
+• Pago de tasa (RD$ 400)
+• Foto reciente
+
+**Renovación:**
+• Cédula anterior
+• Pago de tasa (RD$ 300)
+• Foto reciente
+
+**Pérdida/Robo:**
+• Denuncia policial
+• Pago de tasa (RD$ 500)
+• Foto reciente
+
+⏰ **Entrega:** 15-30 días hábiles
+
+**Edad mínima:** 16 años
+**Vigencia:** 10 años""",
+
+    "matrimonio": """💒 **Matrimonio Civil en RD:**
+
+**Requisitos:**
+• Acta de nacimiento (ambos)
+• Cédula de identidad (ambos)
+• Certificado de soltería
+• Certificado médico
+• Pago de tasas (RD$ 1,000-1,500)
+
+**Documentos adicionales:**
+• Si es extranjero: pasaporte y certificado de soltería apostillado
+• Si es divorciado: sentencia de divorcio
+• Si es viudo: acta de defunción del cónyuge
+
+**Proceso:**
+1. Solicitud en JCE
+2. Publicación de edictos (15 días)
+3. Celebración del matrimonio
+4. Entrega de acta
+
+⏰ **Duración total:** 3-4 semanas""",
 
     "general": """🏛️ **Junta Central Electoral (JCE) - República Dominicana**
 
@@ -97,7 +166,17 @@ Certificación internacional que valida documentos para uso en el extranjero.
 
 **Horarios:**
 Lunes a Viernes: 8:00 AM - 4:00 PM
-Sábados: 8:00 AM - 12:00 PM"""
+Sábados: 8:00 AM - 12:00 PM
+
+**Oficinas principales:**
+• Santo Domingo (Central)
+• Santiago
+• La Romana
+• San Pedro de Macorís
+• San Francisco de Macorís
+• Barahona
+• Azua
+• San Juan de la Maguana"""
 }
 
 # Control de límites
@@ -108,14 +187,19 @@ def obtener_respuesta_predefinida(texto):
     """Obtener respuesta predefinida basada en el texto del usuario"""
     texto_lower = texto.lower()
     
-    if any(palabra in texto_lower for palabra in ["acta", "nacimiento", "certificado"]):
+    # Detectar temas específicos
+    if any(palabra in texto_lower for palabra in ["acta", "nacimiento", "certificado", "partida"]):
         return RESPUESTAS_PREDEFINIDAS["acta_nacimiento"]
-    elif any(palabra in texto_lower for palabra in ["cambio", "nombre", "modificar"]):
+    elif any(palabra in texto_lower for palabra in ["cambio", "nombre", "modificar", "corregir", "apellido"]):
         return RESPUESTAS_PREDEFINIDAS["cambio_nombre"]
-    elif any(palabra in texto_lower for palabra in ["naturalizacion", "nacionalidad", "ciudadania"]):
+    elif any(palabra in texto_lower for palabra in ["naturalizacion", "nacionalidad", "ciudadania", "extranjero", "inmigrante"]):
         return RESPUESTAS_PREDEFINIDAS["naturalizacion"]
-    elif any(palabra in texto_lower for palabra in ["apostilla", "internacional", "extranjero"]):
+    elif any(palabra in texto_lower for palabra in ["apostilla", "internacional", "extranjero", "validar", "legalizar"]):
         return RESPUESTAS_PREDEFINIDAS["apostilla"]
+    elif any(palabra in texto_lower for palabra in ["cedula", "identidad", "documento", "carnet"]):
+        return RESPUESTAS_PREDEFINIDAS["cedula"]
+    elif any(palabra in texto_lower for palabra in ["matrimonio", "casarse", "boda", "casamiento"]):
+        return RESPUESTAS_PREDEFINIDAS["matrimonio"]
     else:
         return RESPUESTAS_PREDEFINIDAS["general"]
 
