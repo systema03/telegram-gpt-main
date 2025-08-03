@@ -150,6 +150,113 @@ Certificación internacional que valida documentos para uso en el extranjero.
 
 ⏰ **Duración total:** 3-4 semanas""",
 
+    "divorcio": """💔 **Divorcio en República Dominicana:**
+
+**Tipos de divorcio:**
+• Divorcio por mutuo acuerdo
+• Divorcio por incompatibilidad
+• Divorcio por falta
+
+**Requisitos:**
+• Acta de matrimonio
+• Cédulas de identidad (ambos)
+• Acuerdo de divorcio (si aplica)
+• Pago de tasas (RD$ 2,000-4,000)
+
+**Proceso:**
+1. Solicitud en JCE
+2. Audiencia de conciliación
+3. Sentencia de divorcio
+4. Inscripción en registro civil
+
+⏰ **Duración:** 2-6 meses
+
+**Documentos adicionales:**
+• Acuerdo sobre custodia (si hay hijos)
+• Acuerdo sobre bienes
+• Certificado de buena conducta""",
+
+    "adopcion": """👶 **Adopción en República Dominicana:**
+
+**Requisitos para adoptantes:**
+• Ser mayor de 25 años
+• Tener al menos 15 años más que el adoptado
+• Certificado de idoneidad
+• Estabilidad económica y emocional
+
+**Documentos necesarios:**
+• Solicitud formal
+• Certificado de idoneidad
+• Acta de nacimiento del adoptado
+• Sentencia de adopción
+• Pago de tasas (RD$ 3,000-5,000)
+
+**Proceso:**
+1. Solicitud inicial
+2. Evaluación psicológica y social
+3. Audiencia judicial
+4. Sentencia de adopción
+5. Inscripción en registro civil
+
+⏰ **Duración:** 6-12 meses
+
+**Tipos de adopción:**
+• Adopción simple
+• Adopción plena
+• Adopción internacional""",
+
+    "defuncion": """⚰️ **Acta de Defunción en RD:**
+
+**Requisitos:**
+• Certificado médico de defunción
+• Cédula de identidad del fallecido
+• Cédula de identidad del declarante
+• Pago de tasas (RD$ 300-500)
+
+**Quién puede declarar:**
+• Familiares directos
+• Autoridades médicas
+• Autoridades policiales
+• Cualquier persona con conocimiento
+
+**Proceso:**
+1. Obtener certificado médico
+2. Solicitar acta en JCE
+3. Pago de tasas
+4. Entrega inmediata
+
+⏰ **Tiempo:** 1-3 días hábiles
+
+**Documentos adicionales:**
+• Si es extranjero: pasaporte
+• Si es menor: acta de nacimiento
+• Si es por accidente: reporte policial""",
+
+    "certificados": """📜 **Certificados en la JCE:**
+
+**Tipos de certificados disponibles:**
+• Certificado de buena conducta
+• Certificado de soltería
+• Certificado de nacionalidad
+• Certificado de residencia
+• Certificado de votación
+
+**Requisitos generales:**
+• Cédula de identidad
+• Pago de tasas (RD$ 200-500)
+• Solicitud en formulario oficial
+
+**Tiempos de entrega:**
+• Certificado de buena conducta: 3-5 días
+• Certificado de soltería: 1-2 días
+• Certificado de nacionalidad: 5-7 días
+• Certificado de residencia: 2-3 días
+
+**Oficinas donde solicitarlos:**
+• Cualquier oficina de la JCE
+• En línea (algunos certificados)
+• Por correo (certificados especiales)""",
+
     "general": """🏛️ **Junta Central Electoral (JCE) - República Dominicana**
 
 **Servicios principales:**
@@ -200,6 +307,14 @@ def obtener_respuesta_predefinida(texto):
         return RESPUESTAS_PREDEFINIDAS["cedula"]
     elif any(palabra in texto_lower for palabra in ["matrimonio", "casarse", "boda", "casamiento"]):
         return RESPUESTAS_PREDEFINIDAS["matrimonio"]
+    elif any(palabra in texto_lower for palabra in ["divorcio", "separar", "separacion", "disolver"]):
+        return RESPUESTAS_PREDEFINIDAS["divorcio"]
+    elif any(palabra in texto_lower for palabra in ["adopcion", "adoptar", "hijo", "menor"]):
+        return RESPUESTAS_PREDEFINIDAS["adopcion"]
+    elif any(palabra in texto_lower for palabra in ["defuncion", "muerte", "fallecimiento", "fallecido"]):
+        return RESPUESTAS_PREDEFINIDAS["defuncion"]
+    elif any(palabra in texto_lower for palabra in ["certificado", "buena conducta", "solteria", "nacionalidad", "residencia"]):
+        return RESPUESTAS_PREDEFINIDAS["certificados"]
     else:
         return RESPUESTAS_PREDEFINIDAS["general"]
 

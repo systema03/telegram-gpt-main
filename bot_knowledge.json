@@ -1,0 +1,45 @@
+{
+  "documentos": {
+    "documentos_jce": {
+      "contenido": "DOCUMENTOS Y PROCEDIMIENTOS JCE - REPÚBLICA DOMINICANA\n=====================================================\n\nINFORMACIÓN ADICIONAL PARA EL BOT\n\n1. PROCEDIMIENTOS ESPECIALES\n----------------------------\n\nREPOSICIÓN DE CÉDULA POR ROBO:\n- Denuncia policial obligatoria\n- Pago de tasa: RD$ 500\n- Tiempo: 15-30 días\n- Documentos: Denuncia, foto reciente, pago\n\nCAMBIO DE DOMICILIO:\n- Solicitud en JCE\n- Comprobante de nuevo domicilio\n- Pago: RD$ 200\n- Tiempo: 1-2 días\n\n2. SERVICIOS EN LÍNEA\n---------------------\n\nSERVICIOS DISPONIBLES EN JCE.GOB.DO:\n- Consulta de estado de trámites\n- Solicitud de citas\n- Descarga de formularios\n- Pago en línea de tasas\n- Consulta de oficinas\n\n3. HORARIOS ESPECIALES\n----------------------\n\nOFICINAS CENTRALES:\n- Lunes a Viernes: 8:00 AM - 4:00 PM\n- Sábados: 8:00 AM - 12:00 PM\n- Domingos: Cerrado\n\nOFICINAS PROVINCIALES:\n- Lunes a Viernes: 8:00 AM - 3:00 PM\n- Sábados: 8:00 AM - 11:00 AM\n\n4. TASAS ACTUALIZADAS 2024\n--------------------------\n\nACTAS:\n- Nacimiento: RD$ 500-800\n- Matrimonio: RD$ 1,000-1,500\n- Defunción: RD$ 300-500\n- Divorcio: RD$ 2,000-4,000\n\nCÉDULAS:\n- Primera vez: RD$ 400\n- Renovación: RD$ 300\n- Reposición por robo: RD$ 500\n- Cambio de domicilio: RD$ 200\n\nCERTIFICADOS:\n- Buena conducta: RD$ 300\n- Soltería: RD$ 200\n- Nacionalidad: RD$ 400\n- Residencia: RD$ 250\n\n5. DOCUMENTOS PARA EXTRANJEROS\n------------------------------\n\nNATURALIZACIÓN:\n- Residencia legal 2 años\n- Acta nacimiento apostillada\n- Certificado buena conducta\n- Certificado médico\n- Pasaporte vigente\n- Certificado trabajo\n- Comprobante domicilio\n\nMATRIMONIO CON EXTRANJERO:\n- Pasaporte extranjero\n- Certificado soltería apostillado\n- Traducción oficial (si no es español)\n- Certificado médico\n\n6. PROCEDIMIENTOS JUDICIALES\n----------------------------\n\nCAMBIO DE NOMBRE:\n- Solicitud formal con justificación\n- Publicación en periódico (3 veces)\n- Audiencia judicial\n- Sentencia favorable\n- Inscripción en JCE\n\nADOPCIÓN:\n- Evaluación psicológica y social\n- Certificado de idoneidad\n- Audiencia judicial\n- Sentencia de adopción\n- Inscripción en registro civil\n\n7. CONTACTOS DE EMERGENCIA\n--------------------------\n\nJCE CENTRAL:\n- Teléfono: (809) 537-0100\n- Email: info@jce.gob.do\n- Web: www.jce.gob.do\n\nMINISTERIO RELACIONES EXTERIORES:\n- Teléfono: (809) 221-0100\n- Web: www.mirex.gob.do\n\nPOLICÍA NACIONAL:\n- Emergencias: 911\n- Web: www.policianacional.gob.do\n\n8. PREGUNTAS FRECUENTES\n-----------------------\n\n¿Puedo obtener un acta si no tengo cédula?\nR: Sí, puedes usar pasaporte u otro documento de identidad.\n\n¿Cuánto tiempo tarda un cambio de nombre?\nR: 3-6 meses incluyendo publicaciones y audiencia.\n\n¿Puedo naturalizarme con 1 año en RD?\nR: Solo si estás casado con dominicano. Otros casos requieren 2 años.\n\n¿Qué documentos necesito para casarme con extranjero?\nR: Su pasaporte y certificado de soltería apostillado.\n\n¿Puedo renovar mi cédula antes de que expire?\nR: Sí, hasta 6 meses antes del vencimiento.\n\n¿Qué hago si perdí mi acta de nacimiento?\nR: Solicitar nueva en JCE con tu cédula de identidad.\n\n9. OFICINAS POR PROVINCIA\n-------------------------\n\nSANTO DOMINGO:\n- Central: Av. 27 de Febrero\n- Tel: (809) 537-0100\n\nSANTIAGO:\n- Dirección: Av. Estrella Sadhalá\n- Tel: (809) 247-0100\n\nLA ROMANA:\n- Dirección: Av. Libertad\n- Tel: (809) 556-0100\n\nSAN PEDRO:\n- Dirección: Av. Independencia\n- Tel: (809) 246-0100\n\nSAN FRANCISCO:\n- Dirección: Av. Libertad\n- Tel: (809) 244-0100\n\nBARAHONA:\n- Dirección: Av. Enriquillo\n- Tel: (809) 524-0100\n\nAZUA:\n- Dirección: Av. 19 de Marzo\n- Tel: (809) 521-0100\n\nSAN JUAN:\n- Dirección: Av. Libertad\n- Tel: (809) 557-0100\n\n10. INFORMACIÓN ADICIONAL\n-------------------------\n\nSERVICIOS ESPECIALES:\n- Certificados para uso internacional\n- Legalización de documentos\n- Traducciones oficiales\n- Consultas especializadas\n\nHORARIOS DE ATENCIÓN:\n- Mañanas: 8:00 AM - 12:00 PM\n- Tardes: 1:00 PM - 4:00 PM\n- Sábados: 8:00 AM - 12:00 PM\n\nREQUISITOS GENERALES:\n- Documentos originales\n- Copias legibles\n- Pago de tasas correspondientes\n- Formularios completos\n- Identificación válida ",
+      "categoria": "JCE",
+      "fuente": "documentos_jce.txt",
+      "fecha_carga": "2025-08-03T17:02:04.792286"
+    }
+  },
+  "preguntas_frecuentes": {
+    "¿Puedo obtener un acta si no tengo cédula?": {
+      "respuesta": "Sí, puedes usar pasaporte u otro documento de identidad.",
+      "fuente": "documentos_jce",
+      "fecha_extraccion": "2025-08-03T17:02:04.795020"
+    },
+    "¿Cuánto tiempo tarda un cambio de nombre?": {
+      "respuesta": "3-6 meses incluyendo publicaciones y audiencia.",
+      "fuente": "documentos_jce",
+      "fecha_extraccion": "2025-08-03T17:02:04.795048"
+    },
+    "¿Puedo naturalizarme con 1 año en RD?": {
+      "respuesta": "Solo si estás casado con dominicano. Otros casos requieren 2 años.",
+      "fuente": "documentos_jce",
+      "fecha_extraccion": "2025-08-03T17:02:04.795055"
+    },
+    "¿Qué documentos necesito para casarme con extranjero?": {
+      "respuesta": "Su pasaporte y certificado de soltería apostillado.",
+      "fuente": "documentos_jce",
+      "fecha_extraccion": "2025-08-03T17:02:04.795060"
+    },
+    "¿Puedo renovar mi cédula antes de que expire?": {
+      "respuesta": "Sí, hasta 6 meses antes del vencimiento.",
+      "fuente": "documentos_jce",
+      "fecha_extraccion": "2025-08-03T17:02:04.795136"
+    },
+    "¿Qué hago si perdí mi acta de nacimiento?": {
+      "respuesta": "Solicitar nueva en JCE con tu cédula de identidad.",
+      "fuente": "documentos_jce",
+      "fecha_extraccion": "2025-08-03T17:02:04.795143"
+    }
+  },
+  "procesos": {},
+  "contactos": {},
+  "fecha_actualizacion": "2025-08-03T17:02:04.800545"
+}
