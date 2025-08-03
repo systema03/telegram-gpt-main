@@ -5,6 +5,7 @@ import os
 import google.generativeai as genai
 import asyncio
 import time
+import json
 
 # Cargar variables de entorno
 load_dotenv()
@@ -14,6 +15,25 @@ TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 # Configurar Gemini
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel("gemini-1.5-flash")
+
+# Cargar resoluciones JCE
+def load_jce_resolutions():
+    """Cargar resoluciones oficiales de la JCE"""
+    resolutions = {}
+    try:
+        if os.path.exists("jce_resolutions.json"):
+            with open("jce_resolutions.json", 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                for category, category_resolutions in data.items():
+                    if category != "fecha_actualizacion":
+                        resolutions.update(category_resolutions)
+        return resolutions
+    except Exception as e:
+        print(f"Error cargando resoluciones: {e}")
+        return {}
+
+# Cargar resoluciones al inicio
+JCE_RESOLUTIONS = load_jce_resolutions()
 
 # Diccionario para mantener historial por usuario
 mensajes = {}
@@ -294,7 +314,12 @@ def obtener_respuesta_predefinida(texto):
     """Obtener respuesta predefinida basada en el texto del usuario"""
     texto_lower = texto.lower()
     
-    # Detectar temas específicos
+    # Primero buscar en resoluciones oficiales
+    resolution_response = buscar_en_resoluciones(texto_lower)
+    if resolution_response:
+        return resolution_response
+    
+    # Si no hay resolución específica, usar respuestas predefinidas
     if any(palabra in texto_lower for palabra in ["acta", "nacimiento", "certificado", "partida"]):
         return RESPUESTAS_PREDEFINIDAS["acta_nacimiento"]
     elif any(palabra in texto_lower for palabra in ["cambio", "nombre", "modificar", "corregir", "apellido"]):
@@ -317,6 +342,43 @@ def obtener_respuesta_predefinida(texto):
         return RESPUESTAS_PREDEFINIDAS["certificados"]
     else:
         return RESPUESTAS_PREDEFINIDAS["general"]
+
+def buscar_en_resoluciones(texto):
+    """Buscar información en las resoluciones oficiales de la JCE"""
+    for title, resolution in JCE_RESOLUTIONS.items():
+        content = resolution.get("contenido", "").lower()
+        processed = resolution.get("contenido_procesado", {})
+        
+        # Buscar coincidencias en el contenido
+        if any(palabra in content for palabra in texto.split()):
+            # Crear respuesta basada en la resolución
+            response = f"📋 **Información Oficial JCE**\n\n"
+            response += f"**Resolución:** {title}\n"
+            
+            if processed.get("numero_resolucion"):
+                response += f"**Número:** {processed['numero_resolucion']}\n"
+            
+            if processed.get("fecha"):
+                response += f"**Fecha:** {processed['fecha']}\n\n"
+            
+            # Agregar artículos relevantes
+            if processed.get("articulos"):
+                response += "**Disposiciones relevantes:**\n"
+                for article in processed["articulos"][:3]:
+                    response += f"• Artículo {article['numero']}: {article['contenido']}\n"
+                response += "\n"
+            
+            # Agregar información de aplicación
+            if processed.get("aplicacion"):
+                response += "**Aplicación:**\n"
+                for app in processed["aplicacion"][:2]:
+                    response += f"• {app}\n"
+                response += "\n"
+            
+            response += "ℹ️ *Esta información está basada en resoluciones oficiales de la JCE*"
+            return response
+    
+    return None
 
 # Guardar el mensaje del usuario
 def handle_user_message(message):
